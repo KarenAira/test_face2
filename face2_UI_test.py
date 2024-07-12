@@ -53,7 +53,7 @@ login()
 
 
 #UI for Face2
-def UI_xs():
+def UI_face():
  
     title = driver.title
     driver.implicitly_wait(10)
@@ -173,6 +173,20 @@ def UI_xs():
         time.sleep(5)
 
     person_sidebar()
+
+
+    #影像設備
+
+
+    #事件
+
+    #看板
+
+    #系統設定
+
+
+
+
 
 
 
