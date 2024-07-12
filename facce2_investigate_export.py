@@ -19,10 +19,16 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.get("http://192.168.10.86/#/login")
 driver.maximize_window()
 
-def downloads():
-    prefs={"download.default_directory":"\download"}
-    options.add_experimental_option("prefs", prefs)
-downloads()
+
+#download
+prefs={"download.default_directory":" ~/Downloads"}
+options.add_experimental_option("prefs", {
+    "download.default_directory": " ~/Downloads",
+    "download.prompt_for_download": False,
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+})
+
 
 def web_driver():
     title = driver.title

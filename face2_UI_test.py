@@ -1,3 +1,4 @@
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -13,17 +14,25 @@ from requests import get
 service = Service()
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
+options.add_argument("--allow-running-insecure-content")
+options.add_argument("--unsafely-treat-insecure-origin-as-secure=http://192.168.10.86/#/login")
 
 #download
-prefs={"download.default_directory":"\download"}
-options.add_experimental_option("prefs", prefs)
+prefs={"download.default_directory":" ~/Downloads"}
+options.add_experimental_option("prefs", {
+    "download.default_directory": " ~/Downloads",
+    "download.prompt_for_download": False,
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+})
 
 
 #********************************************
 
 driver = webdriver.Chrome(service=service, options=options)
-    #web IP for 192.168.10.122
-driver.get("http://192.168.10.122/#/login")
+driver.maximize_window()
+    #web IP for 192.168.10.86
+driver.get("http://192.168.10.86/#/login")
 
 title = driver.title
 driver.implicitly_wait(10)
@@ -173,53 +182,5 @@ def UI_face():
         time.sleep(5)
 
     person_sidebar()
-
-
-    #影像設備
-
-
-    #事件
-
-    #看板
-
-    #系統設定
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-UI_xs()
+    
+UI_face()
