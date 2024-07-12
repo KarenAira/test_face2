@@ -71,6 +71,5 @@ def investigation_test():
         time.sleep(5)
 
 investigation_test()
-
 time.sleep(10)
     
