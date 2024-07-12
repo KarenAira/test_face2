@@ -99,7 +99,6 @@ def person_search():
     except NoSuchElementException:
         print('定位失敗')    
 
-
 def check_mongodb_data_files(personverifyresult):
     if os.path.exists(personverifyresult):
         for root, dirs, files in os.walk(personverifyresult):
